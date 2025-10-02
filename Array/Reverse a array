@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+      // 1. method
+	   
+       int reverse(int arr[],int n){
+       	for(int i=n-1; i>=0; i--){
+       		cout<<arr[i]<<endl;
+		   }
+	   }
+	   
+	   // 2. method
+	   
+	   
+	   int reverse3(int arr[] ,int n){
+	   		int low = 0; int high = n-1;
+	   		
+	   	while(low<high){
+	   		int temp = arr[low];
+	   		arr[low] = arr[high];
+	   		arr[high] = temp;
+	   		low++;
+	   		high--;
+		   }
+	   	
+	   }
+  int main(){
+  	int arr[] = {10,11,12,13,14,15,16,17};
+  	reverse(arr,8);
+  }
