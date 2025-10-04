@@ -1,0 +1,19 @@
+
+function MaxNumOfWord(sentences){
+
+let i = 0;
+    let sum = 0;
+    while (sentences.length > i) {
+        if (sentences[i].split(" ").length > sum) {
+            sum = sentences[i].split(" ").length;
+        }
+        i++;
+    }
+    return sum;
+    
+
+}
+
+Input: sentences = ["please wait", "continue to fight", "continue to win"]
+Output: 3
+
