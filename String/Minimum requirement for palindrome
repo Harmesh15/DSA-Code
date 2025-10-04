@@ -1,0 +1,28 @@
+function check(s){
+    
+    if(s== s.split("").reverse().join("")){
+        return true;
+    }
+    let n = s.length;
+    let halfLen = 0
+    let count =0;
+    if(n%2==1){
+        halfLen = (n+1)/2;
+        halfLen = hafLen-1;
+    }else{
+        halfLen = n/2;
+    }
+
+    let halfstr = s.slice(halfLen,n);
+    let newstr = s;
+    for(let i=0; i<halfstr.length; i++){
+        if(halfstr[i]!=newstr[i]){
+            count++;
+            newstr = halfstr[i] + newstr;
+        }
+    }
+   return count;
+}
+
+let res = check("abffbahuxy");
+console.log(res);
