@@ -1,0 +1,44 @@
+Given a string, create an array of size 26, where each element represents the frequency of a character from 'a to 'z' in the given string.
+
+Constraints:
+1 <= n <= 10^5
+
+The input string consists only of lowercase English letters.
+
+ Input : abracadabra
+Output:
+
+[
+
+5, 2, 1, 1, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0,
+0, 2, 0, 0, 0, 0, 0, 0,
+0, 0
+]
+
+=>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Code=>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+function check(s) {
+
+    let arr = new Array(26).fill(0);
+    let s1 = s.split('').sort().join('');
+    let n = s1.length;
+    let count = 1;
+           
+    for (let i = 0; i < n; i= i+count){
+        let pos = s1.charCodeAt(i)-97;
+          count = 1;
+        for(let j = i; j < n; j++){
+            if (s1[i] == s1[j+1]) {
+                count++;
+                
+            }
+        }
+        
+        arr[pos] = count;
+    }
+    return arr;
+
+};
