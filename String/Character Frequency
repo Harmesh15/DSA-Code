@@ -20,18 +20,18 @@ Output:
 
 
 
-function check(s) {
+function check(str) {
 
     let arr = new Array(26).fill(0);
-    let s1 = s.split('').sort().join('');
-    let n = s1.length;
+    let sortStr = str.split('').sort().join('');
+    let n = sortStr.length;
     let count = 1;
            
     for (let i = 0; i < n; i= i+count){
-        let pos = s1.charCodeAt(i)-97;
+        let pos = sortStr.charCodeAt(i)-97;
           count = 1;
         for(let j = i; j < n; j++){
-            if (s1[i] == s1[j+1]) {
+            if (sortStr[i] == sortStr[j+1]) {
                 count++;
                 
             }
