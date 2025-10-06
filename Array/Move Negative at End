@@ -1,0 +1,35 @@
+function segregateElements(arr) {
+    
+    // Fill two stacks with positive and negative
+    // elements respectively
+    let neg = [];
+    let pos = [];
+    for (let value of arr) {
+        if (value < 0)
+            neg.push(value);
+        else
+            pos.push(value);
+    }
+
+    // Place the elements back into the original array arr[]
+    for (let i = arr.length - 1; i >= 0; i--) {
+        
+        // first place the negative elements
+        if (neg.length > 0) {
+            arr[i] = neg.pop();
+        } 
+        
+        // If negative elements were all placed
+        // then place remaining elements
+        else {
+            arr[i] = pos.pop();
+        }
+    }
+    return arr;
+}
+
+ let arr = [1,-1,3,2,-7,-5,11,6]
+ let res = segregateElements(arr);
+
+
+ console.log(res);
