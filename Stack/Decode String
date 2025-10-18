@@ -1,0 +1,57 @@
+
+// Decode String
+  // Example 1:
+ //Input: s = "3[a]2[bc]"        Example 2:   Input: s = "3[a2[c]]"  , Output: "accaccacc"
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+Example 3:
+Example 3:
+
+Example 2:
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+Example 3:
+Example 3:
+Output: "aaabcbc"
+Example 2:
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+Example 3:
+
+function  DecodeString(s) {
+
+    let countstack = [];
+    let stringStack = [];
+    let currStr = "";
+    let currNo = 0;
+
+    for (let c of s) {
+
+        if (!isNaN(c)) {
+            currNo = currNo * 10 + parseInt(c);
+        }else if(c == '['){
+            countstack.push(currNo);
+            stringStack.push(currStr);
+
+            currNo = 0;
+            currStr = "";
+
+        }else if (c == "]") {
+            let repeatcount = countstack.pop();
+
+            currStr = stringStack.pop() + currStr.repeat(repeatcount);
+        }
+        else {
+            currStr += c;
+        }
+    }
+    return currStr;
+};
+
+
+let s = "3[a]2[bc]";
+let res = DecodeString(s);
+console.log(res);
