@@ -1,0 +1,21 @@
+
+
+function seclarge(arr){
+    
+    let sec = -1;
+    let largest = -1;
+    
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] > largest){
+            sec = largest;
+            largest = arr[i];
+        }else if (arr[i] < largest && arr[i] > sec) {
+            sec = arr[i];
+        }
+        
+    }
+    return sec;
+}
+
+let arr = [12, 35, 1, 10, 34, 1];
+console.log(seclarge(arr));
