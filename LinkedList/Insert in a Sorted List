@@ -1,0 +1,24 @@
+
+
+var insertInSortedList = function(head, k) {
+
+    let newNode = ListNode(k);
+    let curr = head;
+
+    while (curr !== null) {
+        if (curr.next == null && curr.val <= k){
+            newNode.next = curr.next;
+            curr.next = newNode;
+            break;
+            
+        }
+        else if(curr.next.val >= k) {
+            newNode.next = curr.next;
+            curr.next = newNode
+            break;
+        }
+       
+        curr = curr.next;
+    }
+    return head;
+}
