@@ -1,0 +1,20 @@
+You are given an array arr of positive integers. Your task is to find all the leaders in the array.
+An element is considered a leader if it is greater than or equal to all elements to its right. 
+The rightmost element is always a leader.
+
+
+ function test(nums){
+ let arr = [];
+    let n = nums.length;
+    arr.push(nums[n - 1]);
+    for (let i = n-2; i >=0; i--) {
+        if (nums[i] >= arr[arr.length-1]) {
+            arr.push(nums[i]);
+        }
+    }
+    arr.reverse();
+    return arr; 
+ }
+ 
+let nums = [16,17,4,3,5,2];
+console.log(test(nums));
